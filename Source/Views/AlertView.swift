@@ -148,7 +148,7 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
             self.titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: insets.right),
         ])
 
-        self.pinBottomOfScrollView(to: self.messageLabel, withPriority: .defaultLow)
+        self.pinBottomOfScrollView(to: self.messageLabel, withPriority: UILayoutPriorityDefaultLow)
 
     }
 
@@ -162,7 +162,7 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
                                                             constant: self.visualStyle.verticalElementSpacing)
         ])
 
-        self.pinBottomOfScrollView(to: self.messageLabel, withPriority: .defaultLow + 1.0)
+        self.pinBottomOfScrollView(to: self.messageLabel, withPriority: UILayoutPriorityDefaultLow + 1.0)
     }
 
     private func createTextFieldsConstraints() {
@@ -184,7 +184,7 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
             textFieldsView.heightAnchor.constraint(equalToConstant: height),
         ])
 
-        self.pinBottomOfScrollView(to: textFieldsView, withPriority: .defaultLow + 2.0)
+        self.pinBottomOfScrollView(to: textFieldsView, withPriority: UILayoutPriorityDefaultLow + 2.0)
     }
 
     private func createCustomContentViewConstraints() {
@@ -202,13 +202,13 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
             self.contentView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -widthOffset),
         ])
 
-        self.pinBottomOfScrollView(to: self.contentView, withPriority: .defaultLow + 3.0)
+        self.pinBottomOfScrollView(to: self.contentView, withPriority: UILayoutPriorityDefaultLow + 3.0)
     }
 
     private func createCollectionViewConstraints() {
         let height = self.actionsCollectionView.displayHeight
         let heightConstraint = self.actionsCollectionView.heightAnchor.constraint(equalToConstant: height)
-        heightConstraint.priority = .defaultHigh
+        heightConstraint.priority = UILayoutPriorityDefaultLow
 
         NSLayoutConstraint.activate([
             heightConstraint,
@@ -227,7 +227,7 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
 
         let height = self.scrollView.contentSize.height
         let heightConstraint = self.scrollView.heightAnchor.constraint(equalToConstant: height)
-        heightConstraint.priority = .defaultHigh
+        heightConstraint.priority = UILayoutPriorityDefaultLow
         heightConstraint.isActive = true
 
     }
@@ -242,6 +242,6 @@ final class AlertView: UIView, AlertControllerViewRepresentable {
 
 private extension UILayoutPriority {
     static func + (lhs: UILayoutPriority, rhs: Float) -> UILayoutPriority {
-        return UILayoutPriority(rawValue: lhs.rawValue + rhs)
+        return UILayoutPriority.init(lhs + rhs)
     }
 }

@@ -335,8 +335,7 @@ public class AlertController: UIViewController {
                                                        multiplier: 1, constant: maximumHeightOffset),
                 ])
 
-                let priority = UILayoutPriority(rawValue: 500)
-                self.alert.setContentCompressionResistancePriority(priority, for: .vertical)
+                self.alert.setContentCompressionResistancePriority(500, for: .vertical)
         }
     }
 
