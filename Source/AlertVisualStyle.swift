@@ -13,7 +13,7 @@ open class AlertVisualStyle: NSObject {
 
     /// The minimum distance between alert elements and the alert itself
     @objc
-    public var contentPadding = UIEdgeInsets(top: 36, left: 16, bottom: 12, right: 16)
+    public var contentPadding = UIEdgeInsets(top: 36, left: 80, bottom: 12, right: 16)
 
     /// The minimum distance between the alert and its superview
     @objc
